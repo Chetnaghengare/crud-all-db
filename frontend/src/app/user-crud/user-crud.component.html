@@ -1,0 +1,34 @@
+<div class="crud-container">
+    <h2>User Management</h2>
+  
+    <div class="form-group">
+      <input [(ngModel)]="name" placeholder="Enter name">
+      <input [(ngModel)]="email" placeholder="Enter email">
+      <button (click)="editMode ? updateUser() : addUser()">
+        {{ editMode ? 'Update User' : 'Add User' }}
+      </button>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button class="edit" (click)="editUser(user)">Edit</button>
+            <button class="delete" (click)="deleteUser(user.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
